@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PaymentContext.Domain.ValueObjects;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -14,9 +15,9 @@ namespace PaymentContext.Domain.Entities
             decimal total,
             decimal totalPaid,
             string owner,
-            string document,
-            string address,
-            string email) : base(
+            Document document,
+            Address address,
+            Email email) : base(
                 paidDate,
                 expireDate,
                 total,
