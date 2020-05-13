@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "efefa8243d0c78f1cceacfa743c0533c756cbab7"
+    "signature": "2f555b2f163068686b69b0e9ea98d5ca92d6eb28"
   },
   "compilationOptions": {},
   "targets": {
@@ -16,6 +16,14 @@
         },
         "runtime": {
           "PaymentContext.Tests.dll": {}
+        }
+      },
+      "Flunt/1.0.5": {
+        "runtime": {
+          "lib/netstandard2.0/Flunt.dll": {
+            "assemblyVersion": "1.0.5.0",
+            "fileVersion": "1.0.5.0"
+          }
         }
       },
       "Microsoft.CodeCoverage/15.9.0": {
@@ -1017,6 +1025,7 @@
       },
       "PaymentContext.Domain/1.0.0": {
         "dependencies": {
+          "Flunt": "1.0.5",
           "PaymentContext.Shared": "1.0.0"
         },
         "runtime": {
@@ -1024,6 +1033,9 @@
         }
       },
       "PaymentContext.Shared/1.0.0": {
+        "dependencies": {
+          "Flunt": "1.0.5"
+        },
         "runtime": {
           "PaymentContext.Shared.dll": {}
         }
@@ -1035,6 +1047,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Flunt/1.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ceA0BlLV39KlqCJWj38TooqvXAxFMwZ/c1z8fBbEnizDAjcBfs183RB11Chx2apeBfTQc7gFE4xLZ5twTY15oA==",
+      "path": "flunt/1.0.5",
+      "hashPath": "flunt.1.0.5.nupkg.sha512"
     },
     "Microsoft.CodeCoverage/15.9.0": {
       "type": "package",

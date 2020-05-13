@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.1": {
+      "Flunt/1.0.5": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Flunt.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Flunt.dll": {}
+        }
+      },
       "Microsoft.CodeCoverage/15.9.0": {
         "type": "package",
         "compile": {
@@ -1622,6 +1631,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Flunt": "1.0.5",
           "PaymentContext.Shared": "1.0.0"
         },
         "compile": {
@@ -1634,6 +1644,9 @@
       "PaymentContext.Shared/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Flunt": "1.0.5"
+        },
         "compile": {
           "bin/placeholder/PaymentContext.Shared.dll": {}
         },
@@ -1644,6 +1657,18 @@
     }
   },
   "libraries": {
+    "Flunt/1.0.5": {
+      "sha512": "ceA0BlLV39KlqCJWj38TooqvXAxFMwZ/c1z8fBbEnizDAjcBfs183RB11Chx2apeBfTQc7gFE4xLZ5twTY15oA==",
+      "type": "package",
+      "path": "flunt/1.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "flunt.1.0.5.nupkg.sha512",
+        "flunt.nuspec",
+        "lib/netstandard2.0/Flunt.dll"
+      ]
+    },
     "Microsoft.CodeCoverage/15.9.0": {
       "sha512": "7hLVTRUCxAALZakJQgGfWJammOBXWiLyGGpaFz/+zDR+Rwj+sB4RMgEZAw8HQDpc1tjpbnzq9JEs/+OmFI94XA==",
       "type": "package",
@@ -5846,6 +5871,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "Flunt >= 1.0.5",
       "MSTest.TestAdapter >= 1.3.2",
       "MSTest.TestFramework >= 1.3.2",
       "Microsoft.NET.Test.Sdk >= 15.9.0",
@@ -5903,6 +5929,10 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
+          "Flunt": {
+            "target": "Package",
+            "version": "[1.0.5, )"
+          },
           "MSTest.TestAdapter": {
             "target": "Package",
             "version": "[1.3.2, )"
