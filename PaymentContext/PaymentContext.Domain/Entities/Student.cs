@@ -1,9 +1,8 @@
-﻿using PaymentContext.Domain.ValueObjects;
+﻿using Flunt.Validations;
+using PaymentContext.Domain.ValueObjects;
 using PaymentContext.Shared.Entities;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace PaymentContext.Domain.Entities
 {
@@ -11,36 +10,55 @@ namespace PaymentContext.Domain.Entities
     {
         private IList<Subscription> _subscriptions;
 
-        //um dos objetivos do construtor, unico ponto de entrada.
         public Student(Name name, Document document, Email email)
         {
-            Name = name;
+            Name = name;           
             Document = document;
             Email = email;
-            _subscriptions = new List<Subscription>();
 
-            //agrupar todas as notificações dos VOS
             AddNotifications(name, document, email);
+
         }
 
         public Name Name { get; private set; }        
         public Document Document { get; private set; }
         public Email Email { get; private set; }
-        public Address Address { get; private set; }
         public IReadOnlyCollection<Subscription> Subscriptions { get { return _subscriptions.ToArray(); } }
-
-        public void AddSubscription(Subscription subscription)
+        public Address Address { get; private set; }
+        
+        public void AddSubscriptions(Subscription subscription)
         {
-            //Se já tiver uma assinatura ativa, cancela
+            //se já tiver uma assinatura ativa, cancela       
 
-            //cancela todas as outras assinaturas e colca esta como principal
-            foreach (var sub in Subscriptions)
+
+            //Cancela todas as outras assinaturas e coloca está como principal
+
+            //foreach (var sub in Subscriptions)
+            //{
+            //    sub.Activate(false);
+            //}
+            //_subscriptions.Add(subscription);
+
+
+            var hasSubscriptionActive = false;
+
+            foreach (var sub in _subscriptions)
             {
-                sub.Inactivate();
+                if (sub.Active)
+                    hasSubscriptionActive = true;
+
+                AddNotifications(new Contract()
+                    .Requires()
+                    .IsFalse(hasSubscriptionActive, nameof(Student.Subscriptions), "Você já tem uma assinatura ativa.")
+                    .AreEquals(0, subscription.Payments.Count,"Student.Subscriptions.Payment","Está assinatura não possui pagamentos."));
+
+
+                //outra alternativa
+
+                //if (hasSubscriptionActive)
+                //    AddNotification(nameof(Student.Subscriptions), "Você já tem uma assinatura ativa.");
             }
-            _subscriptions.Add(subscription);
 
         }
-
     }
 }

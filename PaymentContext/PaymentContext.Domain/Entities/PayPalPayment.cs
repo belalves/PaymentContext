@@ -8,27 +8,28 @@ namespace PaymentContext.Domain.Entities
     public class PayPalPayment : Payment
     {
         public PayPalPayment(
-            string transactionConde, 
+            string transactionCode,
             DateTime paidDate,
             DateTime expireDate,
             decimal total,
             decimal totalPaid,
-            string owner,
+            Address address,
+            string payer,
             Document document,
-            Address address, 
-            Email email) : base(
-                paidDate,
-                expireDate,
-                total, 
-                totalPaid,
-                owner,
-                document,
-                address,
-                email)
+            Email email)
+            : base(
+                  paidDate,
+                  expireDate,
+                  total,
+                  totalPaid,
+                  address,
+                  payer,
+                  document,
+                  email)
         {
-            TransactionConde = transactionConde;
+            TransactionCode = transactionCode;
         }
 
-        public string TransactionConde { get;private set; }
+        public string TransactionCode { get; set; }
     }
 }
