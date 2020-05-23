@@ -3,4 +3,10 @@
 ################################################################################
 
 /PaymentContext/.vs/PaymentContext/v15/Server/sqlite3
-/PaymentContext/.vs/config
+/PaymentContext/.vs
+/PaymentContext/PaymentContext.Domain/bin/*
+/PaymentContext/PaymentContext.Domain/obj/*
+/PaymentContext/PaymentContext.Shared/obj/*
+/PaymentContext/PaymentContext.Shared/bin/*
+/PaymentContext/PaymentContext.Tests/obj/*
+/PaymentContext/PaymentContext.Tests/bin/*
